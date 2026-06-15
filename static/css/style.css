@@ -1,0 +1,50 @@
+body {
+    background: #161616;
+}
+
+main { 
+    max-width: 900px; 
+    margin: auto; 
+    padding: 1rem; 
+    line-height: 1.5; 
+} 
+
+.wrapper {
+  display: flex;
+  min-height: 100vh; /* Full viewport height */
+}
+
+/* Sidebar styling */
+.sidebar {
+  width: 250px;
+  background-color: #202020;
+  color: white;
+  padding: 20px;
+}
+
+.sidebar h2 {
+  margin-top: 0;
+  margin-bottom: 30px;
+}
+
+/* Navigation link styling */
+.sidebar nav a {
+  display: block;
+  color: #ecf0f1;
+  text-decoration: none;
+  padding: 12px 10px;
+  margin-bottom: 5px;
+  border-radius: 4px;
+}
+
+/* Interactive hover state */
+.sidebar nav a:hover {
+  background-color: #121212;
+}
+
+/* Main Content styling */
+.main-content {
+  flex: 1; /* Automatically takes up all remaining space */
+  padding: 40px;
+  background-color: #f8f9fa;
+}
