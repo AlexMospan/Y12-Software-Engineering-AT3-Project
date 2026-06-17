@@ -14,28 +14,37 @@
     <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='images/favicon.png') }}"> 
 </head> 
 
-<div class="container"> 
-    <p style="color: rgb(255, 255, 255);">Welcome!</p> 
-</div> 
-
 <div class="wrapper">
     <div class="app-container">
-        <!-- These are the colorful abstract shapes hiding behind your glass -->
+        <!-- Background Elements -->
         <div class="glow-blob purple-one"></div>
         <div class="glow-blob purple-two"></div>
         <div class="wave-line line-one"></div>
 
-    <!--Sidebar-->
-    <aside class="glass_sidebar">
-        <h2 style="color:white"> Chatbot Demo </h2>
-        <nav>
-            <a href="#home" > Home </a>
-        </nav>
-    </aside>
+        <!-- Sidebar (Left Column) -->
+        <aside id="sidebar" class="glass_sidebar">
+            <!-- The button stays right here inside the sidebar panel -->
+            <button id="toggleBtn" class="sidebar-toggle">☰</button>
+            
+            <!-- This wrapper will handle hiding the text links and titles -->
+            <div id="sidebar-inner" class="sidebar-content">
+                <h2 style="color:white">Chatbot Demo</h2>
+                <nav>
+                    <a href="#home">Home</a>
+                </nav>
+            </div>
+        </aside>
 
-    <!-- Main Content -->
-    <main class="main content">
-        <h1 style="color:white"> Ask Anything </h1>
-        <input type="text" placeholder="Enter your text here">
-    </main>
+        <!-- Main Content Area (Right Column) -->
+        <main id="main-content" class="main-content">   
+            <h1 style="color:white">Ask Anything</h1>
+            
+            <!-- Input container -->
+            <div class="input-box">
+                <input type="text" class="centered-textbox" placeholder="Enter your text here">
+            </div>
+        </main>
+    </div>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
 </div>
+
