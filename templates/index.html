@@ -17,18 +17,33 @@
 <div class="wrapper">
     <div class="app-container">
         <!-- Background Elements -->
-        <div class="glow-blob purple-one"></div>
-        <div class="glow-blob purple-two"></div>
-        <div class="wave-line line-one"></div>
+        <div class="glow-container"></div>
+        <svg class="topography-svg" viewBox="0 0 1000 1000" preserveAspectRatio="xMidYMid slice">
+            <path d="M 0,300 C 350,280 480,420 380,600 C 280,780 150,800 0,950" />
+            <path d="M 0,400 C 280,390 380,480 300,610 C 220,740 100,750 0,850" />
+            <path d="M 0,500 C 210,490 280,540 220,620 C 160,700 50,710 0,770" />
+            <path d="M 0,180 C 120,150 180,100 200,0" />
+            <path d="M 300,90 C 600,650 400,40 720,0" />
+            <path d="M 400,0 C 430,120 540,160 580,90 C 605,50 550,0 525,0" />
+            <path d="M 100,0 C 660,800 520,110 550,65 C 565,40 530,0 510,0" />
+            <path d="M 475,0 C 485,45 505,65 520,40 C 530,25 515,0 495,0" />
+            <path d="M 25,10000 C 100,450 230,220 410,3400 C 450,540 405,620 370,740 C 335,860 250,880 0,950" />
+            <path d="M 10,100 C 60,280 475,340 485,470 C 495,770 455,650 470,780 C 485,910 250,930 100,1000" />
+            <path d="M 1980,10 C 1450,80 500,150 510,430 C 560,700 515,680 800,810 C 1545,940 1400,950 1300,1000" />
+            <path d="M 1000,300 C 650,280 520,420 620,600 C 720,780 850,800 1000,950" />
+            <path d="M 1000,400 C 720,390 620,480 700,610 C 780,740 900,750 1000,850" />
+            <path d="M 1000,500 C 790,490 720,540 780,620 C 840,700 950,710 1000,770" />
+            <path d="M 520,1000 C 530,900 620,860 700,920 C 730,950 700,1000 650,1000" />
+            <path d="M 580,1000 C 590,950 630,920 660,950 C 675,965 650,1000 610,1000" />
+        </svg>
 
         <!-- Sidebar (Left Column) -->
         <aside id="sidebar" class="glass_sidebar">
-            <!-- The button stays right here inside the sidebar panel -->
             <button id="toggleBtn" class="sidebar-toggle">☰</button>
             
-            <!-- This wrapper will handle hiding the text links and titles -->
+            <!-- Handles hiding the text links and titles -->
             <div id="sidebar-inner" class="sidebar-content">
-                <h2 style="color:white">Chatbot Demo</h2>
+                <h2 style="color:white"></h2>
                 <nav>
                     <a href="#home">Home</a>
                 </nav>
@@ -47,4 +62,3 @@
     </div>
     <script src="{{ url_for('static', filename='js/main.js') }}"></script>
 </div>
-
