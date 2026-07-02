@@ -28,7 +28,7 @@ body {
     0 20px 50px rgba(0, 0, 0, 0.5),
     inset 0 1px 1px rgba(255, 255, 255, 0.25);
   
-  width: 250px;
+  width: 275px;
   height: calc(95vh);
   box-sizing: border-box;
   border-radius: 20px;
@@ -51,6 +51,7 @@ body {
   margin-top: 0;
   margin-bottom: 24px;
   font-weight: 600;
+  text-align: center;
 }
 
 .glass_sidebar a {
@@ -109,6 +110,9 @@ body {
 }
 
 .sidebar-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
   transition: opacity 0.2s ease, visibility 0.2s;
   opacity: 1;
   visibility: visible;
@@ -237,4 +241,132 @@ body {
   top: -100px;
   left: -100px;
   transform: rotate(-15deg);
+}
+
+/* Sidebar Application Buttons Styles */
+
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.sidebar-btn, .recent-item-btn {
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.925);
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 500;
+  text-align: center;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.sidebar-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 14px;
+  border-radius: 10px;
+  width: 100%;
+}
+
+.sidebar-btn:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.active-btn {
+  background: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+}
+
+.new-chat-btn {
+  border: 1px dashed rgba(255, 255, 255, 0.15);
+}
+
+.new-chat-btn:hover {
+  border-color: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.recent-chats-container {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  margin-bottom: 16px;
+}
+
+.recent-chats-container h3 {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: rgba(255, 255, 255, 0.4);
+  margin: 0 0 10px 0;
+  font-weight: 600;
+  text-align: center;
+}
+
+.recent-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.recent-list::-webkit-scrollbar {
+  width: 4px;
+}
+
+.recent-list::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+}
+
+.recent-item-btn {
+  padding: 8px 10px;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.65);
+  border-radius: 8px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+}
+
+.recent-item-btn:hover {
+  background: rgba(255, 255, 255, 0.03);
+  color: #ffffff;
+}
+
+.sidebar-footer {
+  margin-top: auto;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.login-btn {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.main-title {
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  margin-bottom: 24px;
+}
+
+.input-box {
+  transition: transform 1.2s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.main-content.has-searched .input-box {
+  transform: translateY(38.5vh);
+}
+
+.main-content.has-searched .main-title {
+  opacity: 0;
+  transform: translateY(-20px);
+  pointer-events: none;
 }
