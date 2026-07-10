@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" /> 
     <meta http-equiv="Content-Security-Policy" content="script-src 'self'; worker-src 'self';">
 
-    <title>Chatbot Demo</title> 
+    <title>Onyx AI</title> 
 
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
     <link rel="manifest" href="/manifest.json" />
@@ -42,30 +42,40 @@
                 <h2 style="color:white">Onyx AI</h2>
                 
                 <nav class="sidebar-nav">
-                    <a href="/"><button class="sidebar-btn home-btn">Home</button></a>
-                    <button class="sidebar-btn new-chat-btn">New Chat</button>
+                    <a href="/"><button class="sidebar-btn home-btn active-btn">Home</button></a>
+                    <button id="new-chat-sidebar-btn" class="sidebar-btn new-chat-btn">+ New Chat</button>
                 </nav>
 
                 <div class="recent-chats-container">
-                    <h3>Recent</h3>
-                    <div class="recent-list">
-                        <button class="recent-item-btn">Test</button>
+                    <h3>Recent Conversations</h3>
+                    <div id="recent-list-container" class="recent-list">
+                        {% for chat in chats %}
+                            <button class="recent-item-btn" data-chat-id="{{ chat.id }}">{{ chat.title }}</button>
+                        {% endfor %}
                     </div>
                 </div>
 
                 <div class="sidebar-footer">
-                    <button class="sidebar-btn login-btn">Login / Sign Up</button>
+                    {% if logged_in %}
+                        <div style="color: rgba(255,255,255,0.4); font-size:12px; margin-bottom:8px; text-align:center;">Logged in as: {{ username }}</div>
+                        <a href="/logout"><button class="sidebar-btn login-btn" style="border: 1px solid rgba(255,255,255,0.1)">Log Out</button></a>
+                    {% else %}
+                        <div style="color: rgba(255,255,255,0.4); font-size:12px; margin-bottom:8px; text-align:center;">Using Onyx as Guest</div>
+                        <a href="/auth"><button class="sidebar-btn login-btn" style="border: 1px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.05);">Login / Sign Up</button></a>
+                    {% endif %}
                 </div>
             </div>
         </aside>
-
         <main id="main-content" class="main-content">   
-            <h1 style="color:white" class="main-title">Ask Anything</h1>
+            <h1 style="color:white" class="main-title">Ask Onyx</h1>
+            
+            <div id="chat-messages" class="messages-container"></div>
             
             <div class="input-box">
-                <input type="text" id="chat-input" class="centered-textbox" placeholder="Type 'quit' to end chat">
+                <input type="text" id="chat-input" class="centered-textbox" placeholder="Type here">
             </div>
         </main>
     </div>
     <script src="{{ url_for('static', filename='js/main.js') }}"></script>
 </div>
+</html>
